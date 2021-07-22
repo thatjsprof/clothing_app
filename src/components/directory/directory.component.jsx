@@ -5,10 +5,10 @@ import { createStructuredSelector } from "reselect";
 import { getShopData } from "../../redux/directory/directory.selectors";
 import "./directory.styles.scss";
 
-const Directory = ({ collections }) => {
+const Directory = ({ shopData }) => {
   return (
     <div className="directory-menu">
-      {collections.map(({ id, ...props }) => {
+      {shopData.map(({ id, ...props }) => {
         return <MenuItem key={id} {...props}></MenuItem>;
       })}
     </div>
@@ -16,7 +16,7 @@ const Directory = ({ collections }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  collections: getShopData,
+  shopData: getShopData,
 });
 
 export default connect(mapStateToProps)(Directory);
