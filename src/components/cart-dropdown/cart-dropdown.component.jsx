@@ -7,10 +7,11 @@ import {
   selectCartItems,
   selectCartItemsCount,
 } from "../../redux/cart/cart.selectors";
+import { toggleHidden } from "../../redux/cart/cart.actions";
 import { createStructuredSelector } from "reselect";
 import "./cart-dropdown.styles.scss";
 
-const CartDropdown = ({ cartItems, history }) => {
+const CartDropdown = ({ cartItems, history, dispatch }) => {
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
@@ -22,7 +23,13 @@ const CartDropdown = ({ cartItems, history }) => {
           <span className="empty-message">No Items in cart</span>
         )}
       </div>
-      <CustomButton type="button" onClick={() => history.push(`/checkout`)}>
+      <CustomButton
+        type="button"
+        onClick={() => {
+          dispatch(toggleHidden());
+          history.push(`/checkout`);
+        }}
+      >
         Go To Checkout
       </CustomButton>
     </div>
