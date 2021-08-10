@@ -1,12 +1,12 @@
 import React from "react";
-import "./button.styles.scss";
+import { Button } from "./button.styles";
 
-const Button = ({ children, customClass = '', inverted, ...props }) => {
+const CustomButton = ({ children, ...props }) => {
   return (
-    <button className={`${inverted ? 'inverted': ''} ${customClass} custom-button`} {...props}>
+    <Button {...props}>
       {children}
-    </button>
+    </Button>
   );
 };
 
-export default Button;
+export default CustomButton;
