@@ -16,5 +16,12 @@ export const selectCollectionPreview = createSelector(
 
 export const getCollectionData = (collectionID) =>
   createSelector([getShopData], (shopData) => {
-    return shopData ? shopData[collectionID] : null
+    return shopData ? shopData[collectionID] : null;
   });
+
+export const getCollectionIsFetching = createSelector(
+  [shopSelect],
+  (shop) => {
+    return shop.isFetching
+  }
+)
